@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Project - Brian Lau</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/shared.css">
+    <link rel="stylesheet" href="assets/css/[page-specific].css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prismjs/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">Brian Lau</a>
+            <button class="nav-toggle" aria-label="toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+            <div class="nav-links">
+                <a href="/" class="nav-link">About</a>
+                <a href="/resume.html" class="nav-link">Resume</a>
+                <a href="/sql-project.html" class="nav-link active">SQL Project</a>
+                <a href="/tableau-demo.html" class="nav-link">Tableau Demo</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="content-container">
+        <h1>SQL Project</h1>
+        <p class="project-intro">
+            This project demonstrates a SQL-based analysis of manufacturer performance metrics, 
+            similar to work performed at Nike. The analysis includes key metrics such as 
+            on-time delivery rates, quality scores, and production efficiency.
+        </p>
+
+        <section class="sql-section">
+            <h2>Database Schema</h2>
+            <pre><code class="language-sql">
+-- Create Manufacturers Table
+CREATE TABLE manufacturers (
+    manufacturer_id SERIAL PRIMARY KEY,
+    manufacturer_name VARCHAR(100),
+    country VARCHAR(50),
+    partnership_start_date DATE
+);
+
+-- Create Production Orders Table
+CREATE TABLE production_orders (
+    order_id SERIAL PRIMARY KEY,
+    manufacturer_id INTEGER REFERENCES manufacturers(manufacturer_id),
+    product_code VARCHAR(50),
+    quantity INTEGER,
+    order_date DATE,
+    target_delivery_date DATE,
+    actual_delivery_date DATE,
+    quality_score DECIMAL(3,2)
+);
+
+-- Create Quality Metrics Table
+CREATE TABLE quality_metrics (
+    metric_id SERIAL PRIMARY KEY,
+    manufacturer_id INTEGER REFERENCES manufacturers(manufacturer_id),
+    inspection_date DATE,
+    defect_rate DECIMAL(5,2),
+    compliance_score DECIMAL(3,2),
+    efficiency_score DECIMAL(3,2)
+);
+            </code></pre>
+        </section>
+
+        <section class="sql-section">
+            <h2>Sample Data Insertion</h2>
+            <pre><code class="language-sql">
+-- Insert sample manufacturers
+INSERT INTO manufacturers (manufacturer_name, country, partnership_start_date) VALUES
+('Elite Sportswear Manufacturing', 'Vietnam', '2020-01-01'),
+('Premium Athletic Gear', 'Indonesia', '2019-03-15'),
+('Global Sports Solutions', 'China', '2018-06-01');
+
+-- Insert sample production orders
+INSERT INTO production_orders 
+(manufacturer_id, product_code, quantity, order_date, target_delivery_date, actual_delivery_date, quality_score)
+VALUES
+(1, 'NK-2023-001', 5000, '2023-01-01', '2023-02-01', '2023-02-03', 0.95),
+(2, 'NK-2023-002', 3000, '2023-01-15', '2023-02-15', '2023-02-14', 0.98),
+(3, 'NK-2023-003', 4000, '2023-02-01', '2023-03-01', '2023-03-05', 0.92);
+            </code></pre>
+        </section>
+
+        <section class="sql-section">
+            <h2>Performance Analysis Queries</h2>
+            <h3>On-Time Delivery Analysis</h3>
+            <pre><code class="language-sql">
+SELECT 
+    m.manufacturer_name,
+    COUNT(*) as total_orders,
+    ROUND(AVG(CASE 
+        WHEN actual_delivery_date <= target_delivery_date THEN 1
+        ELSE 0
+    END) * 100, 2) as otd_percentage,
+    ROUND(AVG(quality_score) * 100, 2) as avg_quality_score
+FROM manufacturers m
+JOIN production_orders po ON m.manufacturer_id = po.manufacturer_id
+GROUP BY m.manufacturer_name
+ORDER BY otd_percentage DESC;
+            </code></pre>
+
+            <h3>Quality Trends Analysis</h3>
+            <pre><code class="language-sql">
+WITH monthly_metrics AS (
+    SELECT 
+        m.manufacturer_name,
+        DATE_TRUNC('month', inspection_date) as month,
+        AVG(defect_rate) as avg_defect_rate,
+        AVG(compliance_score) as avg_compliance,
+        AVG(efficiency_score) as avg_efficiency
+    FROM manufacturers m
+    JOIN quality_metrics qm ON m.manufacturer_id = qm.manufacturer_id
+    GROUP BY m.manufacturer_name, DATE_TRUNC('month', inspection_date)
+)
+SELECT 
+    manufacturer_name,
+    month,
+    ROUND(avg_defect_rate, 2) as defect_rate,
+    ROUND(avg_compliance * 100, 2) as compliance_percentage,
+    ROUND(avg_efficiency * 100, 2) as efficiency_percentage
+FROM monthly_metrics
+ORDER BY month DESC, avg_defect_rate ASC;
+            </code></pre>
+        </section>
+
+        <section class="sql-section">
+            <h2>Performance Dashboard View</h2>
+            <pre><code class="language-sql">
+CREATE VIEW manufacturer_performance_dashboard AS
+SELECT 
+    m.manufacturer_name,
+    m.country,
+    COUNT(DISTINCT po.order_id) as total_orders,
+    ROUND(AVG(po.quality_score) * 100, 2) as avg_quality_score,
+    ROUND(AVG(CASE 
+        WHEN po.actual_delivery_date <= po.target_delivery_date THEN 1
+        ELSE 0
+    END) * 100, 2) as otd_percentage,
+    ROUND(AVG(qm.defect_rate), 2) as avg_defect_rate,
+    ROUND(AVG(qm.efficiency_score) * 100, 2) as efficiency_percentage
+FROM manufacturers m
+LEFT JOIN production_orders po ON m.manufacturer_id = po.manufacturer_id
+LEFT JOIN quality_metrics qm ON m.manufacturer_id = qm.manufacturer_id
+GROUP BY m.manufacturer_name, m.country
+ORDER BY avg_quality_score DESC;
+            </code></pre>
+        </section>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prismjs/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prismjs/1.29.0/components/prism-sql.min.js"></script>
+    <script src="assets/js/nav.js"></script>
+</body>
+</html> 

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau Demo - Brian Lau</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/shared.css">
+    <link rel="stylesheet" href="assets/css/tableau-demo.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script type="text/javascript" src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">Brian Lau</a>
+            <button class="nav-toggle" aria-label="toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+            <div class="nav-links">
+                <a href="/" class="nav-link">About</a>
+                <a href="/resume.html" class="nav-link">Resume</a>
+                <a href="/sql-project.html" class="nav-link">SQL Project</a>
+                <a href="/tableau-demo.html" class="nav-link active">Tableau Demo</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="content-container">
+        <h1>Data Visualization Dashboard</h1>
+        <p>This interactive dashboard demonstrates data visualization capabilities using Tableau Public. 
+           The dashboard below showcases key metrics and insights from [describe your dataset/analysis].</p>
+
+        <!-- Tableau Embed Container -->
+        <div class="viz-container">
+            <div id="tableauViz"></div>
+            
+            <!-- Optional: Add controls -->
+            <div class="viz-controls">
+                <button id="exportPDF" class="control-btn">
+                    <i class="fas fa-file-pdf"></i> Export PDF
+                </button>
+                <button id="fullscreen" class="control-btn">
+                    <i class="fas fa-expand"></i> Fullscreen
+                </button>
+            </div>
+        </div>
+
+        <!-- Optional: Add description or analysis -->
+        <div class="viz-description">
+            <h2>Key Insights</h2>
+            <ul>
+                <li>Insight 1: [Description of key finding]</li>
+                <li>Insight 2: [Description of key finding]</li>
+                <li>Insight 3: [Description of key finding]</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/nav.js"></script>
+    <script src="assets/js/tableau-viz.js"></script>
+</body>
+</html> 
