@@ -321,9 +321,99 @@
       }
     }
   </style>
+  <style>
+    /* Additional Stats Container CSS */
+    .stats-container {
+      max-height: 600px; /* <<< Adjust this value for desired scroll height */
+      overflow-y: auto; /* Enable vertical scrollbar when needed */
+      border: 1px solid #ccc;
+      padding: 15px;
+      background-color: #f9f9f9;
+      font-family: Arial, sans-serif; /* Or your preferred font */
+      line-height: 1.4;
+    }
+    
+    /* Style for each game section */
+    .game-section {
+      margin-bottom: 30px; /* Space between game blocks */
+      padding-bottom: 20px; /* Space before the border */
+      border-bottom: 1px solid #eee; /* Separator line between games */
+    }
+    
+    /* Remove border from the last game section */
+    .game-section:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+    
+    /* Style for game titles */
+    .game-section h3 {
+      margin-top: 0;
+      margin-bottom: 15px;
+      color: #333;
+      font-size: 1.2em;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 8px;
+    }
+    
+    /* Basic table styling */
+    .stats-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px; /* Space below each table within a game section */
+      font-size: 0.9em;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+    }
+    
+    /* Table header and cell styling */
+    .stats-table th,
+    .stats-table td {
+      border: 1px solid #ddd;
+      padding: 8px 10px;
+      text-align: center; /* Center-align numerical data */
+      vertical-align: middle;
+    }
+    
+    /* Header specific styling */
+    .stats-table th {
+      background-color: #e9e9e9;
+      font-weight: bold;
+      color: #333;
+    }
+    
+    /* Footer specific styling (for Totals row) */
+    .stats-table tfoot td {
+      font-weight: bold;
+      background-color: #f2f2f2;
+    }
+    
+    /* Left-align the player names */
+    .stats-table td:first-child,
+    .stats-table th:first-child {
+      text-align: left;
+      min-width: 100px; /* Give player name column a bit more space */
+    }
+    
+    /* Optional: Alternating row colors for readability */
+    .stats-table tbody tr:nth-child(odd) {
+      background-color: #f8f8f8;
+    }
+  </style>
 </head>
 <body>
-<h1><a href="/" style="text-decoration: none;">Brian Lau</a></h1>
+<nav class="navbar">
+  <div class="navbar-content">
+    <a href="/" class="navbar-logo">Brian Lau</a>
+    <ul class="navbar-links">
+      <li><a href="/public/basketball/index.html" class="active">Basketball</a></li>
+      <li><a href="/public/movies-shows/index.html">Movies/Shows</a></li>
+      <li><a href="/public/now/index.html">Now</a></li>
+      <li><a href="/public/about/index.html">About</a></li>
+    </ul>
+  </div>
+</nav>
   <div class="container">
     <header>
       <h1>Thursday Hoops</h1>
@@ -477,135 +567,755 @@
     <tr><th style="border:1px solid #999; padding:8px;">Percentages</th><td>.412</td><td>.143</td><td colspan="6"></td></tr>
   </table>
 </div>
-    <table style="border-collapse: collapse; width: 100%; margin-bottom: 30px; font-family: Arial, sans-serif;">
-      <caption style="font-weight: bold; font-size: 1.2em; margin-bottom: 8px;">Team 1</caption>
-      <tr>
-        <th style="border: 1px solid #999; padding: 8px; background-color: #f2f2f2;">Players</th>
-        <th style="border: 1px solid #999; padding: 8px; background-color: #f2f2f2;">FG</th>
-        <th style="border: 1px solid #999; padding: 8px; background-color: #f2f2f2;">3PT</th>
-        <th style="border: 1px solid #999; padding: 8px; background-color: #f2f2f2;">Reb</th>
-        <th style="border: 1px solid #999; padding: 8px; background-color: #f2f2f2;">Ast</th>
-        <th style="border: 1px solid #999; padding: 8px; background-color: #f2f2f2;">Stl</th>
-        <th style="border: 1px solid #999; padding: 8px; background-color: #f2f2f2;">Blk</th>
-        <th style="border: 1px solid #999; padding: 8px; background-color: #f2f2f2;">TO</th>
-        <th style="border: 1px solid #999; padding: 8px; background-color: #f2f2f2;">PTs</th>
-      </tr>
-      <tr><td style="border:1px solid #999; padding:8px;">Aaron</td><td>1-7</td><td>0-0</td><td>8</td><td>3</td><td>1</td><td>0</td><td>1</td><td>2</td></tr>
-      <tr><td style="border:1px solid #999; padding:8px;">Brandon</td><td>2-8</td><td>1-4</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>5</td></tr>
-      <tr><td style="border:1px solid #999; padding:8px;">Cliff</td><td>1-6</td><td>1-2</td><td>2</td><td>0</td><td>2</td><td>0</td><td>0</td><td>3</td></tr>
-      <tr><td style="border:1px solid #999; padding:8px;">CJ</td><td>1-6</td><td>1-5</td><td>0</td><td>1</td><td>2</td><td>0</td><td>0</td><td>3</td></tr>
-      <tr><td style="border:1px solid #999; padding:8px;">Tony Shin</td><td>1-6</td><td>1-2</td><td>3</td><td>3</td><td>1</td><td>0</td><td>0</td><td>3</td></tr>
-      <tr><th style="border:1px solid #999; padding:8px;">Totals</th><td>6-27</td><td>4-13</td><td>14</td><td>7</td><td>6</td><td>0</td><td>1</td><td>16</td></tr>
-      <tr><th style="border:1px solid #999; padding:8px;">Percentages</th><td>.222</td><td>.308</td><td colspan="6"></td></tr>
-    </table>
-
-    <table style="border-collapse: collapse; width: 100%; font-family: Arial, sans-serif;">
-      <caption style="font-weight: bold; font-size: 1.2em; margin-bottom: 8px;">Team 2</caption>
-      <tr>
-        <th style="border: 1px solid #999; padding: 8px; background-color: #f2f2f2;">Players</th>
-        <th style="border: 1px solid #999; padding: 8px; background-color: #f2f2f2;">FG</th>
-        <th style="border: 1px solid #999; padding: 8px; background-color: #f2f2f2;">3PT</th>
-        <th style="border: 1px solid #999; padding: 8px; background-color: #f2f2f2;">Reb</th>
-        <th style="border: 1px solid #999; padding: 8px; background-color: #f2f2f2;">Ast</th>
-        <th style="border: 1px solid #999; padding: 8px; background-color: #f2f2f2;">Stl</th>
-        <th style="border: 1px solid #999; padding: 8px; background-color: #f2f2f2;">Blk</th>
-        <th style="border: 1px solid #999; padding: 8px; background-color: #f2f2f2;">TO</th>
-        <th style="border: 1px solid #999; padding: 8px; background-color: #f2f2f2;">PTs</th>
-      </tr>
-      <tr><td style="border:1px solid #999; padding:8px;">Andrew</td><td>2-5</td><td>0-2</td><td>2</td><td>3</td><td>0</td><td>0</td><td>2</td><td>4</td></tr>
-      <tr><td style="border:1px solid #999; padding:8px;">Brian</td><td>1-2</td><td>0-0</td><td>0</td><td>0</td><td>0</td><td>2</td><td>1</td><td>2</td></tr>
-      <tr><td style="border:1px solid #999; padding:8px;">Tony Lam</td><td>2-4</td><td>1-3</td><td>2</td><td>2</td><td>1</td><td>0</td><td>1</td><td>5</td></tr>
-      <tr><td style="border:1px solid #999; padding:8px;">Thomas</td><td>1-3</td><td>0-2</td><td>3</td><td>0</td><td>0</td><td>0</td><td>2</td><td>2</td></tr>
-      <tr><td style="border:1px solid #999; padding:8px;">Vinh</td><td>1-3</td><td>0-2</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
-      <tr><th style="border:1px solid #999; padding:8px;">Totals</th><td>7-17</td><td>1-7</td><td>8</td><td>5</td><td>1</td><td>2</td><td>6</td><td>15</td></tr>
-      <tr><th style="border:1px solid #999; padding:8px;">Percentages</th><td>.412</td><td>.143</td><td colspan="6"></td></tr>
-    </table>
   </div>
 </section>
 
+<div class="stats-container">
+
+  <div class="game-section">
+      <h3>Game 1 - 11 Minutes</h3>
+      <table class="stats-table">
+          <thead>
+              <tr>
+                  <th>Player</th>
+                  <th>FGT</th>
+                  <th>Reb</th>
+                  <th>Ast</th>
+                  <th>Stl</th>
+                  <th>Blk</th>
+                  <th>TO</th>
+                  <th>Pts</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr><td>Brandon</td><td>1-5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
+              <tr><td>Cliff</td><td>1-4</td><td>3</td><td>0</td><td>0</td><td>0</td><td>1</td><td>3</td></tr>
+              <tr><td>Aaron</td><td>2-7</td><td>9</td><td>1</td><td>1</td><td>0</td><td>1</td><td>4</td></tr>
+              <tr><td>Tinylam</td><td>1-3</td><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td><td>2</td></tr>
+              <tr><td>Tinlun...</td><td>2-5</td><td>3</td><td>0</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
+          </tbody>
+          <tfoot>
+              <tr>
+                  <td>Totals</td><td>7-24</td><td>17</td><td>1</td><td>2</td><td>0</td><td>3</td><td>15</td></tr>
+          </tfoot>
+      </table>
+      <table class="stats-table">
+           <thead>
+               <tr>
+                   <th>Player</th>
+                   <th>FGT</th>
+                   <th>Reb</th>
+                   <th>Ast</th>
+                   <th>Stl</th>
+                   <th>Blk</th>
+                   <th>TO</th>
+                   <th>Pts</th>
+               </tr>
+           </thead>
+           <tbody>
+               <tr><td>Andrew</td><td>1-2</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>2</td></tr>
+               <tr><td>Tony Lam</td><td>3-5</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>8</td></tr>
+               <tr><td>Venus</td><td>1-6</td><td>4</td><td>1</td><td>0</td><td>0</td><td>3</td><td>3</td></tr>
+               <tr><td>Thomas</td><td>2-4</td><td>3</td><td>0</td><td>0</td><td>0</td><td>2</td><td>4</td></tr>
+           </tbody>
+           <tfoot>
+               <tr>
+                   <td>Totals</td><td>7-17</td><td>8</td><td>2</td><td>0</td><td>0</td><td>6</td><td>17</td></tr>
+           </tfoot>
+       </table>
+  </div>
+
+  <div class="game-section">
+      <h3>Game 2 - 8 Minutes</h3>
+       <table class="stats-table">
+           <thead>
+               <tr>
+                   <th>Player</th>
+                   <th>FGT</th>
+                   <th>Reb</th>
+                   <th>Ast</th>
+                   <th>Stl</th>
+                   <th>Blk</th>
+                   <th>TO</th>
+                   <th>Pts</th>
+               </tr>
+           </thead>
+           <tbody>
+               <tr><td>Brandon</td><td>2-4</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>5</td></tr>
+               <tr><td>Cliff</td><td>2-4</td><td>2</td><td>0</td><td>1</td><td>0</td><td>0</td><td>4</td></tr>
+               <tr><td>Aaron</td><td>1-2</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
+               <tr><td>Tony Shin</td><td>1-4</td><td>2</td><td>1</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
+               <tr><td>Tinlun...</td><td>0-2</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+           </tbody>
+           <tfoot>
+               <tr>
+                   <td>Totals</td><td>6-16</td><td>7</td><td>2</td><td>1</td><td>0</td><td>0</td><td>13</td></tr>
+           </tfoot>
+       </table>
+       <table class="stats-table">
+           <thead>
+               <tr>
+                   <th>Player</th>
+                   <th>FGT</th>
+                   <th>Reb</th>
+                   <th>Ast</th>
+                   <th>Stl</th>
+                   <th>Blk</th>
+                   <th>TO</th>
+                   <th>Pts</th>
+               </tr>
+           </thead>
+           <tbody>
+               <tr><td>Andrew</td><td>0-4</td><td>1</td><td>0</td><td>0</td><td>0</td><td>2</td><td>0</td></tr>
+               <tr><td>Darryl</td><td>0-0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+               <tr><td>Venus</td><td>0-0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td></tr>
+               <tr><td>Lam</td><td>0-0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+               <tr><td>Thomas</td><td>1-1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
+               <tr><td>???</td><td>0-0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+           </tbody>
+           <tfoot>
+               <tr>
+                   <td>Totals</td><td>1-5</td><td>3</td><td>0</td><td>0</td><td>0</td><td>3</td><td>2</td></tr>
+           </tfoot>
+       </table>
+  </div>
+
+  <div class="game-section">
+      <h3>Game 3 - 7 Minutes</h3>
+       <table class="stats-table">
+           <thead>
+               <tr>
+                   <th>Player</th>
+                   <th>FGT</th>
+                   <th>Reb</th>
+                   <th>Ast</th>
+                   <th>Stl</th>
+                   <th>Blk</th>
+                   <th>TO</th>
+                   <th>Pts</th>
+               </tr>
+           </thead>
+           <tbody>
+               <tr><td>Brandon</td><td>1-1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
+               <tr><td>Cliff</td><td>3-3</td><td>2</td><td>1</td><td>0</td><td>0</td><td>1</td><td>6</td></tr>
+               <tr><td>Aaron</td><td>2-3</td><td>1</td><td>1</td><td>0</td><td>1</td><td>0</td><td>4</td></tr>
+               <tr><td>Tinlun...</td><td>4-9</td><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>9</td></tr>
+           </tbody>
+           <tfoot>
+               <tr>
+                   <td>Totals</td><td>10-16</td><td>5</td><td>2</td><td>0</td><td>2</td><td>2</td><td>21</td></tr>
+           </tfoot>
+       </table>
+       <table class="stats-table">
+           <thead>
+               <tr>
+                   <th>Player</th>
+                   <th>FGT</th>
+                   <th>Reb</th>
+                   <th>Ast</th>
+                   <th>Stl</th>
+                   <th>Blk</th>
+                   <th>TO</th>
+                   <th>Pts</th>
+               </tr>
+           </thead>
+           <tbody>
+               <tr><td>Andrew</td><td>2-3</td><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td><td>4</td></tr>
+               <tr><td>Tony Lam</td><td>2-3</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
+               <tr><td>Venus</td><td>0-1</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+               <tr><td>???</td><td>3-6</td><td>4</td><td>0</td><td>0</td><td>0</td><td>0</td><td>6</td></tr>
+           </tbody>
+           <tfoot>
+               <tr>
+                   <td>Totals</td><td>7-13</td><td>6</td><td>3</td><td>0</td><td>0</td><td>1</td><td>14</td></tr>
+           </tfoot>
+       </table>
+  </div>
+
+  <div class="game-section">
+      <h3>Game 4 - 10 Minutes</h3>
+       <table class="stats-table">
+           <thead>
+               <tr>
+                   <th>Player</th>
+                   <th>FGT</th>
+                   <th>Reb</th>
+                   <th>Ast</th>
+                   <th>Stl</th>
+                   <th>Blk</th>
+                   <th>TO</th>
+                   <th>Pts</th>
+               </tr>
+           </thead>
+           <tbody>
+               <tr><td>Cliff</td><td>2-4</td><td>3</td><td>1</td><td>0</td><td>1</td><td>0</td><td>4</td></tr>
+               <tr><td>Darryl</td><td>0-0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+               <tr><td>Tony Shin</td><td>2-5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>1</td><td>4</td></tr>
+               <tr><td>Tinlun...</td><td>4-11</td><td>2</td><td>0</td><td>0</td><td>0</td><td>0</td><td>9</td></tr>
+           </tbody>
+           <tfoot>
+               <tr>
+                   <td>Totals</td><td>8-20</td><td>10</td><td>1</td><td>0</td><td>1</td><td>1</td><td>17</td></tr>
+           </tfoot>
+       </table>
+       <table class="stats-table">
+           <thead>
+               <tr>
+                   <th>Player</th>
+                   <th>FGT</th>
+                   <th>Reb</th>
+                   <th>Ast</th>
+                   <th>Stl</th>
+                   <th>Blk</th>
+                   <th>TO</th>
+                   <th>Pts</th>
+               </tr>
+           </thead>
+           <tbody>
+               <tr><td>Andrew</td><td>3-6</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td><td>6</td></tr>
+               <tr><td>Tony Lam</td><td>1-2</td><td>0</td><td>1</td><td>1</td><td>0</td><td>0</td><td>2</td></tr>
+               <tr><td>Venus</td><td>0-4</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+               <tr><td>???</td><td>3-7</td><td>2</td><td>0</td><td>0</td><td>0</td><td>0</td><td>6</td></tr>
+           </tbody>
+           <tfoot>
+               <tr>
+                   <td>Totals</td><td>7-19</td><td>2</td><td>2</td><td>2</td><td>0</td><td>1</td><td>14</td></tr>
+           </tfoot>
+       </table>
+  </div>
+
+  <div class="game-section">
+      <h3>Game 5 - 10 Minutes</h3>
+       <table class="stats-table">
+           <thead>
+               <tr>
+                   <th>Player</th>
+                   <th>FGT</th>
+                   <th>Reb</th>
+                   <th>Ast</th>
+                   <th>Stl</th>
+                   <th>Blk</th>
+                   <th>TO</th>
+                   <th>Pts</th>
+               </tr>
+           </thead>
+           <tbody>
+               <tr><td>Cliff</td><td>1-2</td><td>2</td><td>1</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
+               <tr><td>Aaron</td><td>4-6</td><td>2</td><td>2</td><td>1</td><td>1</td><td>0</td><td>9</td></tr>
+               <tr><td>Tony Shin</td><td>1-2</td><td>4</td><td>0</td><td>0</td><td>0</td><td>1</td><td>2</td></tr>
+               <tr><td>Tinlun...</td><td>4-?</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>?</td></tr> </tbody>
+           <tfoot>
+               <tr>
+                   <td>Totals</td><td>10-?</td><td>13</td><td>8</td><td>1</td><td>1</td><td>3</td><td>24+?</td></tr> </tfoot>
+       </table>
+        <table class="stats-table">
+           <thead>
+               <tr>
+                   <th>Player</th>
+                   <th>FGT</th>
+                   <th>Reb</th>
+                   <th>Ast</th>
+                   <th>Stl</th>
+                   <th>Blk</th>
+                   <th>TO</th>
+                   <th>Pts</th>
+               </tr>
+           </thead>
+           <tbody>
+               <tr><td>Andrew Tang</td><td>0-3</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td></tr>
+               <tr><td>Tony Lam</td><td>0-3</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td></tr>
+               <tr><td>Brandon</td><td>1-3</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
+               <tr><td>Venus Lam</td><td>0-2</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+               <tr><td>Thomas</td><td>0-4</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+           </tbody>
+           <tfoot>
+               <tr>
+                   <td>Totals</td><td>1-15</td><td>3</td><td>0</td><td>0</td><td>0</td><td>2</td><td>2</td></tr>
+           </tfoot>
+       </table>
+  </div>
+
+  <div class="game-section">
+      <h3>Game 6 - 10 Minutes</h3>
+       <table class="stats-table">
+           <thead>
+               <tr>
+                   <th>Player</th>
+                   <th>FGT</th>
+                   <th>Reb</th>
+                   <th>Ast</th>
+                   <th>Stl</th>
+                   <th>Blk</th>
+                   <th>TO</th>
+                   <th>Pts</th>
+               </tr>
+           </thead>
+           <tbody>
+               <tr><td>Cliff</td><td>2-3</td><td>4</td><td>2</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
+               <tr><td>Aaron</td><td>3-5</td><td>3</td><td>0</td><td>0</td><td>1</td><td>0</td><td>6</td></tr>
+               <tr><td>Tony Shin</td><td>2-4</td><td>2</td><td>1</td><td>0</td><td>0</td><td>0</td><td>6</td></tr>
+           </tbody>
+           <tfoot>
+               <tr>
+                   <td>Totals</td><td>7-12</td><td>11</td><td>3</td><td>0</td><td>1</td><td>4</td><td>16</td></tr>
+           </tfoot>
+       </table>
+       <table class="stats-table">
+           <thead>
+               <tr>
+                   <th>Player</th>
+                   <th>FGT</th>
+                   <th>Reb</th>
+                   <th>Ast</th>
+                   <th>Stl</th>
+                   <th>Blk</th>
+                   <th>TO</th>
+                   <th>Pts</th>
+               </tr>
+           </thead>
+           <tbody>
+               <tr><td>Andrew</td><td>3-?</td><td>3</td><td>3</td><td>0</td><td>0</td><td>?</td><td>7</td></tr> <tr><td>Tony Lam</td><td>5-?</td><td>10</td><td>4</td><td>0</td><td>1</td><td>?</td><td>14</td></tr> <tr><td>Darryl</td><td>0-1</td><td>2</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+           </tbody>
+           <tfoot>
+               <tr>
+                   <td>Totals</td><td>8-?</td><td>15</td><td>7</td><td>0</td><td>1</td><td>?</td><td>21</td></tr> </tfoot>
+       </table>
+  </div>
+
+  <div class="game-section">
+      <h3>Game 7 - 5 Minutes</h3>
+       <table class="stats-table">
+           <thead>
+               <tr>
+                   <th>Player</th>
+                   <th>FGT</th>
+                   <th>Reb</th>
+                   <th>Ast</th>
+                   <th>Stl</th>
+                   <th>Blk</th>
+                   <th>TO</th>
+                   <th>Pts</th>
+               </tr>
+           </thead>
+           <tbody>
+               <tr><td>Andrew Tang</td><td>2-3</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
+               <tr><td>Cliff</td><td>1-2</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td><td>2</td></tr>
+               <tr><td>Thomas</td><td>2-4</td><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td><td>5</td></tr>
+           </tbody>
+           <tfoot>
+               <tr>
+                   <td>Totals</td><td>5-9</td><td>3</td><td>2</td><td>0</td><td>0</td><td>2</td><td>11</td></tr>
+           </tfoot>
+       </table>
+       <table class="stats-table">
+           <thead>
+               <tr>
+                   <th>Player</th>
+                   <th>FGT</th>
+                   <th>Reb</th>
+                   <th>Ast</th>
+                   <th>Stl</th>
+                   <th>Blk</th>
+                   <th>TO</th>
+                   <th>Pts</th>
+               </tr>
+           </thead>
+           <tbody>
+               <tr><td>Aaron</td><td>1-2</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
+               <tr><td>Tony Lam</td><td>4-5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>9</td></tr>
+               <tr><td>Tinlun...</td><td>1-4</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
+           </tbody>
+           <tfoot>
+               <tr>
+                   <td>Totals</td><td>6-11</td><td>3</td><td>0</td><td>0</td><td>0</td><td>0</td><td>13</td></tr>
+           </tfoot>
+       </table>
+  </div>
+
+</div>
     <!-- More weeks can be added by duplicating the week-section block above and updating the data -->
 
-    <div class="video-grid-container">
-      <div class="video-grid">
-        <div class="video-block">
-          <h3 style="margin:0 0 0.5rem 0;font-size:1.15rem;color:#1a73e8;text-align:left;">Game 1 Video (Week 1, April 10)</h3>
-          <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;box-shadow:0 2px 8px rgba(60,72,88,0.08);background:#000;">
+    <div class="video-scroll-section">
+      <h2 style="margin:0 0 1rem 0;font-size:1.3rem;color:#1a73e8;text-align:left;">Game Videos</h2>
+      <div class="video-scroll-row" id="video-scroll-row">
+        <div class="video-thumb">
+          <div class="video-thumb-title">Game 1 Video (Week 1, April 10)</div>
+          <div class="video-thumb-frame">
             <iframe
               src="https://www.youtube.com/embed/fLfgailrgDg"
               title="Game 1 - Week 1"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
-              style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:12px;"
             ></iframe>
           </div>
         </div>
-        <div class="video-block">
-          <h3 style="margin:0 0 0.5rem 0;font-size:1.15rem;color:#1a73e8;text-align:left;">Game 2 Video (Week 1, April 10)</h3>
-          <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;box-shadow:0 2px 8px rgba(60,72,88,0.08);background:#000;">
+        <div class="video-thumb">
+          <div class="video-thumb-title">Game 2 Video (Week 1, April 10)</div>
+          <div class="video-thumb-frame">
             <iframe
               src="https://www.youtube.com/embed/LW1EGvbCc5o"
               title="Game 2 - Week 1"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
-              style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:12px;"
             ></iframe>
           </div>
         </div>
+        <div class="video-thumb">
+          <div class="video-thumb-title">Game 3 Video (Week 1, April 10)</div>
+          <div class="video-thumb-frame">
+            <iframe
+              src="https://www.youtube.com/embed/gxgISQ0SlR0"
+              title="Game 3 - Week 1"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+        <div class="video-thumb">
+          <div class="video-thumb-title">Game 4 Video (Week 1, April 10)</div>
+          <div class="video-thumb-frame">
+            <iframe
+              src="https://www.youtube.com/embed/o-on8OX3HFQ"
+              title="Game 4 - Week 1"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+        <div class="video-thumb">
+          <div class="video-thumb-title">Game 5 Video (Week 1, April 10)</div>
+          <div class="video-thumb-frame">
+            <iframe
+              src="https://www.youtube.com/embed/1xr5zy9VgSE"
+              title="Game 5 - Week 1"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+        <div class="video-thumb">
+          <div class="video-thumb-title">Game 6 Video (Week 1, April 10)</div>
+          <div class="video-thumb-frame">
+            <iframe
+              src="https://www.youtube.com/embed/CvtOC_OEL0s"
+              title="Game 6 - Week 1"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+        <div class="video-thumb">
+          <div class="video-thumb-title">Game 7 Video (Week 1, April 10)</div>
+          <div class="video-thumb-frame">
+            <iframe
+              src="https://www.youtube.com/embed/QqXvR7H69eE"
+              title="Game 7 - Week 1"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+        <div class="video-thumb">
+          <div class="video-thumb-title">Game 8 Video (Week 1, April 10)</div>
+          <div class="video-thumb-frame">
+            <iframe
+              src="https://www.youtube.com/embed/L_kK3UyAwLE"
+              title="Game 8 - Week 1"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+        <!-- Add more .video-thumb blocks for more videos -->
       </div>
+      <button class="show-more-btn" id="show-more-btn" style="display:none;">Show More</button>
+      <button class="show-less-btn" id="show-less-btn" style="display:none;">Show Less</button>
       <iframe
-        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTugcXq2jSVorLNqwcQQqzgWNFYTLAXKYMyp9lei9WURksKZDLuXp0zDE7OHvz0Tg/pubhtml?gid=387907227&amp;single=true&amp;widget=true&amp;headers=false"
-        style="width:100%;min-height:480px;border:1px solid #e0e3e6;border-radius:12px;box-shadow:0 2px 8px rgba(60,72,88,0.08);background:#fff;"
+        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTugcXq2jSVorLNqwcQQqzgWNFYTLAXKYMyp9lei9WURksKZDLuXp0zDE7OHvz0Tg/pubhtml?gid=387907227&single=true&widget=true&headers=false"
+        style="width:100%;min-height:480px;border:1px solid #e0e3e6;border-radius:12px;box-shadow:0 2px 8px rgba(60,72,88,0.08);background:#fff;margin-top:2rem;"
         allowfullscreen
         loading="lazy"
       ></iframe>
     </div>
   </div>
   <script src="boxscores.js"></script>
-  <script>
-    // Handle game card click to show box score below the row
-    document.querySelectorAll('.week-section').forEach(weekSection => {
-      const gamesList = weekSection.querySelector('.games-list');
-      const gameCards = gamesList.querySelectorAll('.game-card');
-      const details = weekSection.querySelector('.game-details');
-      let activeCard = null;
+  <style>
+    /* Navbar styles */
+    .navbar {
+      width: 96%;
+      margin: 1.2rem auto 2.2rem auto;
+      background: rgba(255, 255, 255, 0.55);
+      box-shadow: 0 8px 32px 0 rgba(60,72,88,0.18), 0 2px 8px rgba(60,72,88,0.10);
+      backdrop-filter: blur(16px) saturate(180%);
+      border-radius: 18px;
+      border: 1.5px solid rgba(26, 115, 232, 0.13);
+      position: sticky;
+      top: 0.7rem;
+      z-index: 100;
+      transition: background 0.2s, box-shadow 0.2s;
+    }
+    .navbar-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.1rem 2.2rem 1.1rem 1.5rem;
+    }
+    .navbar-logo {
+      color: #fff;
+      font-size: 1.25rem;
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: -1px;
+      margin-right: 2rem;
+    }
+    .navbar-links {
+      list-style: none;
+      display: flex;
+      gap: 1.2rem;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar-links li {
+      display: inline-block;
+    }
+    .navbar-links a {
+      color: #fff;
+      font-weight: 500;
+      text-decoration: none;
+      font-size: 1.05rem;
+      padding: 0.3em 0.7em;
+      border-radius: 6px;
+      transition: background 0.18s, color 0.18s;
+    }
+    .navbar-links a.active,
+    .navbar-links a:hover {
+      background: #fbbc05;
+      color: #1a73e8;
+    }
+    @media (max-width: 700px) {
+      .navbar-content {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0.5rem 0.7rem;
+      }
+      .navbar-logo {
+        margin-bottom: 0.5rem;
+      }
+      .navbar-links {
+        gap: 0.7rem;
+      }
+    }
 
-      gameCards.forEach(card => {
-        card.addEventListener('click', function(e) {
-          // Only toggle if clicking the expand icon or header
-          if (
-            e.target.classList.contains('game-header-expand') ||
-            e.target.classList.contains('game-header') ||
-            e.target.closest('.game-header')
-          ) {
-            // If already active, close it
-            if (card.classList.contains('active')) {
-              card.classList.remove('active');
-              details.classList.remove('active');
-              details.innerHTML = '';
-              return;
-            }
-            // Remove active from all cards
-            gameCards.forEach(c => c.classList.remove('active'));
-            // Set this card as active
-            card.classList.add('active');
-            // Show the box score for this game
-            const gameKey = card.getAttribute('data-game');
-            details.innerHTML = boxScores[gameKey] || '<div style="color:#888;">Box score not available.</div>';
-            details.classList.add('active');
-            // Scroll to the details section if on mobile
-            if (window.innerWidth < 700) {
-              setTimeout(() => {
-                details.scrollIntoView({ behavior: 'smooth', block: 'start' });
-              }, 100);
-            }
+    /* Video scroll section styles */
+    .video-scroll-section {
+      width: 100%;
+      margin: 2.5rem 0 1.5rem 0;
+      box-sizing: border-box;
+      padding: 0;
+    }
+    .video-scroll-row {
+      display: flex;
+      flex-direction: row;
+      gap: 1.5rem;
+      overflow-x: auto;
+      padding-bottom: 0.5rem;
+      scrollbar-width: thin;
+      scrollbar-color: #e0e3e6 #f7f9fa;
+      margin-bottom: 1rem;
+    }
+    .video-scroll-row::-webkit-scrollbar {
+      height: 8px;
+    }
+    .video-scroll-row::-webkit-scrollbar-thumb {
+      background: #e0e3e6;
+      border-radius: 4px;
+    }
+    .video-scroll-row::-webkit-scrollbar-track {
+      background: #f7f9fa;
+    }
+    .video-thumb {
+      min-width: 320px;
+      max-width: 360px;
+      flex: 0 0 320px;
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 2px 8px rgba(60,72,88,0.08);
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0.7rem 0.7rem 1rem 0.7rem;
+      box-sizing: border-box;
+    }
+    .video-thumb-title {
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: #1a73e8;
+      margin-bottom: 0.5rem;
+      text-align: left;
+      width: 100%;
+    }
+    .video-thumb-frame {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 12px;
+      background: #000;
+      box-shadow: 0 2px 8px rgba(60,72,88,0.08);
+    }
+    .video-thumb-frame iframe {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      border-radius: 12px;
+      border: none;
+    }
+    .show-more-btn, .show-less-btn {
+      display: inline-block;
+      background: #1a73e8;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      padding: 0.5em 1.5em;
+      margin: 0.5rem 0.5rem 0.5rem 0;
+      cursor: pointer;
+      transition: background 0.18s, color 0.18s;
+    }
+    .show-more-btn:hover, .show-less-btn:hover {
+      background: #fbbc05;
+      color: #1a73e8;
+    }
+    @media (max-width: 900px) {
+      .video-thumb {
+        min-width: 220px;
+        max-width: 100vw;
+        padding: 0.5rem 0.3rem 0.7rem 0.3rem;
+      }
+      .video-thumb-title {
+        font-size: 1rem;
+      }
+    }
+  </style>
+  <script>
+    // All interactive logic wrapped in DOMContentLoaded
+    document.addEventListener('DOMContentLoaded', function() {
+      // Video scroll "show more" logic
+      const videoRow = document.getElementById('video-scroll-row');
+      const showMoreBtn = document.getElementById('show-more-btn');
+      const showLessBtn = document.getElementById('show-less-btn');
+      const videoThumbs = videoRow ? Array.from(videoRow.children) : [];
+      const maxVisible = 10;
+
+      function updateVideoVisibility(showAll) {
+        videoThumbs.forEach((thumb, idx) => {
+          if (!showAll && idx >= maxVisible) {
+            thumb.style.display = 'none';
+          } else {
+            thumb.style.display = '';
           }
         });
+        if (videoThumbs.length > maxVisible) {
+          showMoreBtn.style.display = showAll ? 'none' : '';
+          showLessBtn.style.display = showAll ? '' : 'none';
+        } else {
+          showMoreBtn.style.display = 'none';
+          showLessBtn.style.display = 'none';
+        }
+      }
+
+      if (showMoreBtn && showLessBtn) {
+        showMoreBtn.addEventListener('click', function() {
+          updateVideoVisibility(true);
+        });
+        showLessBtn.addEventListener('click', function() {
+          updateVideoVisibility(false);
+          videoRow.scrollTo({ left: 0, behavior: 'smooth' });
+        });
+        updateVideoVisibility(false);
+      }
+
+      // Handle game card click to show box score below the row
+      document.querySelectorAll('.week-section').forEach(weekSection => {
+        const gamesList = weekSection.querySelector('.games-list');
+        const gameCards = gamesList.querySelectorAll('.game-card');
+        const details = weekSection.querySelector('.game-details');
+        let activeCard = null;
+
+        gameCards.forEach(card => {
+          card.addEventListener('click', function(e) {
+            // Only toggle if clicking the expand icon or header
+            if (
+              e.target.classList.contains('game-header-expand') ||
+              e.target.classList.contains('game-header') ||
+              e.target.closest('.game-header')
+            ) {
+              // If already active, close it
+              if (card.classList.contains('active')) {
+                card.classList.remove('active');
+                details.classList.remove('active');
+                details.innerHTML = '';
+                return;
+              }
+              // Remove active from all cards
+              gameCards.forEach(c => c.classList.remove('active'));
+              // Set this card as active
+              card.classList.add('active');
+              // Show the box score for this game
+              const gameKey = card.getAttribute('data-game');
+              details.innerHTML = window.boxScores && window.boxScores[gameKey]
+                ? window.boxScores[gameKey]
+                : '<div style="color:#888;">Box score not available.</div>';
+              details.classList.add('active');
+              // Scroll to the details section if on mobile
+              if (window.innerWidth < 700) {
+                setTimeout(() => {
+                  details.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+              }
+            }
+          });
+        });
+      });
+
+      // Highlight top scorer (if not already marked in HTML)
+      function highlightTopScorerInTables() {
+        document.querySelectorAll('.stats-table').forEach(table => {
+          let maxPts = -Infinity, topRow = null;
+          table.querySelectorAll('tbody tr').forEach(row => {
+            const ptsCell = row.querySelector('td:last-child');
+            if (!ptsCell) return;
+            const val = parseInt(ptsCell.textContent, 10);
+            if (!isNaN(val) && val > maxPts) {
+              maxPts = val;
+              topRow = ptsCell;
+            }
+          });
+          // If no .top-scorer class present, add it to the highest PTS cell
+          if (topRow && !table.querySelector('.top-scorer')) {
+            topRow.classList.add('top-scorer');
+          }
+        });
+      }
+      highlightTopScorerInTables();
+      document.addEventListener('click', function(e) {
+        if (e.target.closest('.game-card')) setTimeout(highlightTopScorerInTables, 50);
       });
     });
 
-    // Close button handler for game details
+    // Close button handler for game details (kept global for compatibility)
     function closeGameDetails(weekId) {
       const weekSection = document.getElementById(weekId);
       if (!weekSection) return;
@@ -615,29 +1325,4 @@
       details.innerHTML = '';
       gameCards.forEach(c => c.classList.remove('active'));
     }
-
-    // Highlight top scorer (if not already marked in HTML)
-    function highlightTopScorerInTables() {
-      document.querySelectorAll('.stats-table').forEach(table => {
-        let maxPts = -Infinity, topRow = null;
-        table.querySelectorAll('tbody tr').forEach(row => {
-          const ptsCell = row.querySelector('td:last-child');
-          if (!ptsCell) return;
-          const val = parseInt(ptsCell.textContent, 10);
-          if (!isNaN(val) && val > maxPts) {
-            maxPts = val;
-            topRow = ptsCell;
-          }
-        });
-        // If no .top-scorer class present, add it to the highest PTS cell
-        if (topRow && !table.querySelector('.top-scorer')) {
-          topRow.classList.add('top-scorer');
-        }
-      });
-    }
-    // Run on load and after box score is shown
-    document.addEventListener('DOMContentLoaded', highlightTopScorerInTables);
-    document.addEventListener('click', function(e) {
-      if (e.target.closest('.game-card')) setTimeout(highlightTopScorerInTables, 50);
-    });
   </script>

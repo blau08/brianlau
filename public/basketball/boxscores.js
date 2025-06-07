@@ -1,5 +1,5 @@
 // Box score data for each game (template for two teams, centered)
-const boxScores = {
+window.boxScores = {
   "w2g1": `
     <button class="close-details-btn" onclick="closeGameDetails('week-2')">Close</button>
     <h3 style="margin-top:0;text-align:center;">Team 1 (16) vs Team 2 (15)</h3>
