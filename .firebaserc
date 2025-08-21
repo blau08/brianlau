@@ -1,7 +1,8 @@
 {
   "projects": {
     "default": "brianlau-dbd8a",
-    "main": "brianlau"
+    "main": "brianlau",
+    "laptop": "brianlau"
   },
   "targets": {},
   "etags": {}
